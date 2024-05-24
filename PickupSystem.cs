@@ -10,19 +10,18 @@ public class PickupSystem : MonoBehaviour
     // PUBLICS
     [Header("Settings")]
     
-    [SerializeField] private float SphereCastRadius = 0.1f;
-    [SerializeField] private LayerMask PhysicsLayer;
-    [SerializeField] private float RotationSpeed = 0f;
-    [SerializeField] private float MinSpeed = 0f;
-    [SerializeField] private float MaxSpeed = 300f;
-    [SerializeField] private float MaxDistance = 2.5f;
-    [SerializeField] private float SpeedMultiplier = 5f;
-    [SerializeField] private float MinAddedDistance = 1.15f;
-    [SerializeField] private float MaxAddedDistance = 3f;
-    [SerializeField] private float AddedDistanceSpeed = 500f;
-    [SerializeField] private float LookSpeed = 1f;
-    [SerializeField] private float WeightRatio = 2.5f;
-    [SerializeField] private float MaxWeight = 500f;
+    [SerializeField] private float SphereCastRadius = 0.1f; 
+    [SerializeField] private LayerMask PhysicsLayer; // Layer that the physics objects are on.
+    [SerializeField] private float RotationSpeed = 0f; // Keep that at zero if you don't want objects rotating to face you.
+    [SerializeField] private float MinSpeed = 0f; // The minimum speed an object should move, recommend at 0.
+    [SerializeField] private float MaxSpeed = 300f; // The max speed an object can move.
+    [SerializeField] private float MaxDistance = 2.5f; // Max distance to pickup object.
+    [SerializeField] private float MinAddedDistance = 1.15f; // How close you can scroll your wheel to get closer.
+    [SerializeField] private float MaxAddedDistance = 3f; // How far you can scrol lyour wheel to get the object closer.
+    [SerializeField] private float AddedDistanceSpeed = 50f; //
+    [SerializeField] private float LookSpeed = 50f; // When holding your input to look at it. 
+    [SerializeField] private float WeightRatio = 10f; //The ratio of mass/lbs, 10 is recommend, then a weight of 500 mass/lb won't be pickupabble.
+    [SerializeField] private float MaxWeight = 500f; //Heaviest object you can pick up in mass.
 
 
     [Header("Objects")]
@@ -45,6 +44,7 @@ public class PickupSystem : MonoBehaviour
     private float addedDistance = 0f;
     private ToolSystem toolSystem;
     private PlayerController playerController;
+    private float SpeedMultiplier = 0f;
 
     
     void Start()
