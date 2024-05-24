@@ -23,7 +23,7 @@ public class PhysicsObject : MonoBehaviour
         }
     }
  
-    //this is used to prevent the connection from breaking when you just picked up the object as it sometimes fires a collision with the ground or whatever it is touching
+    // Maximum force preventer.
     public IEnumerator PickUp()
     {
         yield return new WaitForSecondsRealtime(waitOnPickup);
